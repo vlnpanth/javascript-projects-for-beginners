@@ -5,7 +5,7 @@ This mini-app converts a height expressed in feet and inches into centimeters an
 ## Features
 - **Form guidance:** semantic labels, placeholders, and helper text make the expectations for each field explicit before submission.
 - **Input validation:** the script blocks out-of-range values (feet below 0 or inches outside 0–11) and requires that both fields are numbers before performing the conversion.
-- **Accessible results:** conversion feedback is rendered inside an `<output>` element that exposes polite `aria-live` messaging for assistive technologies, plus success/error color cues that follow the blue/yellow palette (blue text, yellow confirmation/error states).
+- **Accessible results:** conversion feedback is rendered inside an `<output>` element that exposes polite `aria-live` messaging for assistive technologies, plus success/error color cues.
 - **Auto-reset + focus:** after a successful calculation, the form clears and focus returns to the feet input so consecutive conversions are quick.
 
 ## Usage
