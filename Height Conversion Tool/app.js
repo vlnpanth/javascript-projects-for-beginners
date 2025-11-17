@@ -1,28 +1,51 @@
-
-const form = document.querySelector('form');
-
-form.addEventListener('submit', function(e){
-    //grab content from feet input
-let feet = document.querySelector('#feet');
-let inches = document.querySelector('#inches');
+const form = document.querySelector('#calculator');
+const feetInput = document.querySelector('#feet');
+const inchesInput = document.querySelector('#inches');
 const results = document.querySelector('#results');
-    e.preventDefault();
 
-    feet = parseInt(feet.value);
-    inches = parseInt(inches.value);
+const MIN_INCHES = 0;
+const MAX_INCHES = 11;
+const MIN_FEET = 0;
 
-    if (isNaN(feet) || isNaN(inches)){
-        results.textContent = "Please enter a valid number!";
-    } else if (feet < 0 ) {
-        results.textContent = "Please enter a feet value > 0";
-    } else if (inches < 0 || inches >= 12) {
-        results.textContent = "Please enter an inch value between 0 and 12";
-    } else {
-        //make conversion to centimers
-        //cm = inches * 2.54
-        let totalInches = (feet*12) + inches;
-        results.textContent = `${totalInches} cm`;
-        document.querySelector('#feet').value = '';
-        document.querySelector('#inches').value = '';
+const showMessage = (message, isError = false) => {
+    results.textContent = message;
+    results.classList.toggle('error', isError);
+};
+
+const parseValue = (value) => {
+    if (value.trim() === '') {
+        return NaN;
     }
-})
+    return Number(value);
+};
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const feet = parseValue(feetInput.value);
+    const inches = parseValue(inchesInput.value);
+
+    if (Number.isNaN(feet) || Number.isNaN(inches)) {
+        showMessage('Please enter numbers in both fields.', true);
+        return;
+    }
+
+    if (feet < MIN_FEET) {
+        showMessage('Feet must be zero or greater.', true);
+        return;
+    }
+
+    if (inches < MIN_INCHES || inches > MAX_INCHES) {
+        showMessage('Inches must be between 0 and 11.', true);
+        return;
+    }
+
+    const totalInches = (feet * 12) + inches;
+    const totalCentimeters = totalInches * 2.54;
+
+    const meters = totalCentimeters / 100;
+    const displayMessage = `${totalCentimeters.toFixed(2)} cm (${meters.toFixed(2)} m)`;
+    showMessage(displayMessage);
+    form.reset();
+    feetInput.focus();
+});

@@ -1,61 +1,108 @@
-form{
-    margin: 50px auto;
-    width: 500px;
-    height: 600px;
-    background-color: black;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top, #1b3b73, #0d1b2a 55%);
+    color: #a9c4ff;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.converter {
+    width: min(500px, 90vw);
+}
+
+form {
+    margin: 0 auto;
+    padding: 2.5rem 2rem 2rem;
+    border-radius: 12px;
+    background: #14273d;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    color: #dff0ff;
+}
+
+.instructions {
+    margin: 0 0 1.5rem;
+    text-align: center;
+    color: #a9c4ff;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
 }
 
 label {
-    width: 150px;
-    color: white;
-    margin:  25px 50px 25px 0px;
-    font-size: 1.5em;
-    
+    font-size: 1.1rem;
+    color: #bcd5ff;
 }
 
-input#feet{
-    height: 40px;
-    width: 200px;
-    padding-left: 25px;
-    margin-left: 20px;
-    font-size: 1.5em;
-    
+input[type="number"] {
+    border: 2px solid #1f4068;
+    background: #0f1f33;
+    color: #f5fbff;
+    border-radius: 8px;
+    padding: 0.6rem 0.75rem;
+    font-size: 1.1rem;
 }
 
-input#inches{
-    height: 40px;
-    width: 200px;
-    padding-left: 25px;
-    font-size: 1.5em;
-    
+input[type="number"]:focus {
+    outline: none;
+    border-color: #ffd84d;
+    box-shadow: 0 0 0 2px rgba(255, 216, 77, 0.35);
 }
 
-h1{
+.hint {
+    margin: -0.5rem 0 1.5rem;
+    font-size: 0.95rem;
+    color: #ffe699;
     text-align: center;
-    color: white;
-    padding-top: 50px;
 }
 
-.row{
-    width: 400px;
-    text-align: left;
-    margin: 25px auto;
-}
-
-#button{
-    background-color: red;
+#button {
+    background: linear-gradient(135deg, #f7c948, #ffe777);
     border: none;
-    color: white;
-    width: 175px;
-    padding: 5px 15px;
+    color: #08214a;
+    width: 100%;
+    padding: 0.9rem;
     line-height: 1.2em;
-    font-size: 1.2em;
+    font-size: 1.15rem;
+    font-weight: 600;
     text-align: center;
-    margin: 50px 120px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
-#results{
-    color: yellow;
-    font-size: 2.5em;
+#button:hover,
+#button:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(247, 201, 72, 0.45);
+    outline: none;
+}
+
+#results {
+    margin-top: 2rem;
+    color: #f2ff49;
+    font-size: 1.75rem;
     text-align: center;
+    min-height: 2.5rem;
+    display: block;
+}
+
+#results.error {
+    color: #ffe08a;
 }

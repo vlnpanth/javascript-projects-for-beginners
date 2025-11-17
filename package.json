@@ -1,0 +1,9 @@
+{
+  "name": "javascript-projects-for-beginners",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Collection of vanilla JavaScript practice projects",
+  "scripts": {
+    "test": "echo 'No automated tests are configured for this project.'"
+  }
+}
