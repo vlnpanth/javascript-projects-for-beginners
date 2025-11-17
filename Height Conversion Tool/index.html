@@ -8,19 +8,30 @@
     <title>Height Converter</title>
 </head>
 <body>
-    <form action="" id="calculator">
-        <h1>Height Converter</h1>
-        <div class="row">
-        <label for="feet">Feet</label><input id="feet"><br>
-        </div>
-        <div class="row">
-        <label for="inches">Inches</label><input id="inches"><br>
-        </div>
-        <div class="row">
-        <input id="button" type="submit" value="Convert to cm">
-        </div>
-        <div id="results"></div>
-    </form>
+    <main class="converter" aria-labelledby="heading">
+        <form id="calculator" novalidate>
+            <h1 id="heading">Height Converter</h1>
+            <p class="instructions">Enter your height in feet and inches to calculate the equivalent centimeters.</p>
+
+            <div class="row">
+                <label for="feet">Feet</label>
+                <input id="feet" type="number" inputmode="numeric" min="0" max="9" step="1" placeholder="e.g. 5" required>
+            </div>
+
+            <div class="row">
+                <label for="inches">Inches</label>
+                <input id="inches" type="number" inputmode="numeric" min="0" max="11" step="1" placeholder="0 – 11" required>
+            </div>
+
+            <p class="hint">Inches must be a whole number between 0 and 11.</p>
+
+            <div class="row">
+                <input id="button" type="submit" value="Convert to cm">
+            </div>
+
+            <output id="results" aria-live="polite" role="status"></output>
+        </form>
+    </main>
     <script src="app.js"></script>
 </body>
 </html>
